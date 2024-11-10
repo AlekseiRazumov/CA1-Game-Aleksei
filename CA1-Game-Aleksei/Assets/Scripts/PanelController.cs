@@ -5,6 +5,8 @@ using UnityEngine;
 public class PanelController : MonoBehaviour
 {
     [SerializeField] GameObject door;
+    [SerializeField] PlayerController playerController;
+    private float distance;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +24,12 @@ public class PanelController : MonoBehaviour
         if (collision.gameObject.tag == "Cube")
         {
             Vector2 position = door.transform.position;
+            distance = Vector2.Distance(playerController.transform.position,position);
+            door.GetComponent<AudioSource>().volume = Mathf.Clamp(1-distance/20f,0f,1f);
+            door.GetComponent<AudioSource>().Play();
             position.y += 6f;
             door.transform.position = position;
-            door.GetComponent<AudioSource>().Play();
+            
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -32,9 +37,12 @@ public class PanelController : MonoBehaviour
         if (collision.gameObject.tag == "Cube")
         {
             Vector2 position = door.transform.position;
+            distance = Vector2.Distance(playerController.transform.position, position);
+            door.GetComponent<AudioSource>().volume = Mathf.Clamp(1 - distance / 20f, 0f, 1f);
+            door.GetComponent<AudioSource>().Play();
             position.y -= 6f;
             door.transform.position = position;
-            door.GetComponent<AudioSource>().Play();
+            
         }
     }
 }

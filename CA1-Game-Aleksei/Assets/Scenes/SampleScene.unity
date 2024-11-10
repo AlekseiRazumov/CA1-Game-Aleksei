@@ -2400,6 +2400,10 @@ PrefabInstance:
       propertyPath: door
       value: 
       objectReference: {fileID: 1174043529}
+    - target: {fileID: 3423687580763104633, guid: 0a229fb12e8ae004483c1c63c4bfbb30, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 134142352}
     - target: {fileID: 4856149185649738119, guid: 0a229fb12e8ae004483c1c63c4bfbb30, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9
@@ -2902,7 +2906,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 90eae78e8ce85a849b5b0ca11b2de641, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4067,6 +4071,10 @@ PrefabInstance:
       propertyPath: door
       value: 
       objectReference: {fileID: 1850050178}
+    - target: {fileID: 3423687580763104633, guid: 0a229fb12e8ae004483c1c63c4bfbb30, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 134142352}
     - target: {fileID: 4856149185649738119, guid: 0a229fb12e8ae004483c1c63c4bfbb30, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.982
@@ -4238,12 +4246,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3303877602303742237, guid: 9b19ebd21b93531429a9db9c61e346ac, type: 3}
+      propertyPath: m_Volume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303877602303742237, guid: 9b19ebd21b93531429a9db9c61e346ac, type: 3}
       propertyPath: MaxDistance
-      value: 2
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 3303877602303742237, guid: 9b19ebd21b93531429a9db9c61e346ac, type: 3}
       propertyPath: rolloffMode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3303877602303742237, guid: 9b19ebd21b93531429a9db9c61e346ac, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.size
