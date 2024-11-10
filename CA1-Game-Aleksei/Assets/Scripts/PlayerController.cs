@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && battery>0 && powerUps>1)
         {
             battery -= 1;
-            battariesText.text = "Battaries: " + battery;
+            battariesText.text = "Batteries: " + battery;
             
             GameObject projectileObject = Instantiate(projectilePrefab,
                 rig2D.position, Quaternion.Euler(0, 0, 90*(1-direction)));
@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && battery < maxBattery)
         {
             battery += 1;
-            battariesText.text = "Battaries: " + battery;
+            battariesText.text = "Batteries: " + battery;
             foreach (GameObject cube in cubes)
             {
                 cube.GetComponent<CubeController>().Unfreeze();
@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
     {
         battery++;
         maxBattery++;
-        battariesText.text = "Battaries: " + battery;
+        battariesText.text = "Batteries: " + battery;
 
     }
     //Unlocking new power up
