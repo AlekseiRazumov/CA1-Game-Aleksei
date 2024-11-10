@@ -15,22 +15,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 10;
     [SerializeField] private int direction=1;
     [SerializeField] private float jumpHeight;
-    private int state = 1;
+    
     private bool isJumping = false;
     private Animator animator;
     private Rigidbody2D rig2D;
-    [SerializeField] private int presents = 0;
-    private int totalPresents = -1;
-    [SerializeField] private int lifes = 3;
+    
+   
     [SerializeField] private TMP_Text battariesText;
     [SerializeField] private TMP_Text stopwatch;
-    [SerializeField] private Image[] images;
-    [SerializeField] private Image timer;
-    private float totalTime = 30f;
+    
+    
+   
     private float currentTime = 0f;
 
-    private float timeToDie;
-    private float deathTime = 0.4f;
+   
 
     [SerializeField] GameObject projectilePrefab;
     public int battery = 0;
@@ -40,6 +38,7 @@ public class PlayerController : MonoBehaviour
     private float move;
     
     [SerializeField] TutorialManager tutorialManager;
+    [SerializeField] FinishFlag finishFlag;
     private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
@@ -55,7 +54,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentTime += Time.deltaTime;
+        if (!finishFlag.isFinished)
+        {
+            currentTime += Time.deltaTime;
+        }
         TimeSpan time = TimeSpan.FromSeconds(currentTime);
         stopwatch.text= time.Minutes.ToString()+":"+time.Seconds.ToString();
         move = Input.GetAxis("Horizontal");
@@ -147,55 +149,6 @@ public class PlayerController : MonoBehaviour
         tutorialManager.popUpIndex++;
     }
    
-    public void AddLive()
-    {
-        lifes++;
-        updateLivesUI();
-    }
-    private void updateLivesUI()
-    {
-        switch (lifes)
-        {
-            case 0:
-                images[0].enabled = false;
-                images[1].enabled = false;
-                images[2].enabled = false;
-                break;
-            case 1:
-                images[0].enabled = true;
-                images[1].enabled = false;
-                images[2].enabled = false;
-                break;
-            case 2:
-                images[0].enabled = true;
-                images[1].enabled = true;
-                images[2].enabled = false;
-                break;
-            case 3:
-                images[0].enabled = true;
-                images[1].enabled = true;
-                images[2].enabled = true;
-                break;
-        }
-    }
-    public void RemoveLife()
-    {
-        lifes--;
-        updateLivesUI();
-
-
-    }
-    public void Die()
-    {
-        animator.SetFloat("MoveY", 1);
-        animator.SetFloat("MoveX", 0);
-        timeToDie -= Time.deltaTime;
-        if (timeToDie < 0)
-        {
-            Destroy(gameObject);
-            string currentSceneName = SceneManager.GetActiveScene().name;
-            SceneManager.LoadScene(currentSceneName);
-        }
-    }
+    
 
 }
