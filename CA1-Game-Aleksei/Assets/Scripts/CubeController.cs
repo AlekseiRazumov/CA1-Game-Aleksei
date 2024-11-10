@@ -15,12 +15,7 @@ public class CubeController : MonoBehaviour
         rig2D = GetComponent<Rigidbody2D>();
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
+    //Freezing and unfreezing of the cube
     public void Unfreeze()
     {
         if (frozen)

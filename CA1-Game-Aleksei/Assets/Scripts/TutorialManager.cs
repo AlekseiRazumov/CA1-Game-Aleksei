@@ -6,15 +6,12 @@ public class TutorialManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] popUps;
     public int popUpIndex;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
+        //Managing tutorial text
+        //Set active text, depending on index
         for (int i = 0; i < popUps.Length; i++)
         {
             if (i == popUpIndex)

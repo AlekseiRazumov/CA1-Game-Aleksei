@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
+    //Managing menu with Play, Restart and Quit buttons
     public void Play()
     {
         SceneManager.LoadScene("SampleScene");
